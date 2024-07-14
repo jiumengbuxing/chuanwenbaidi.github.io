@@ -70,11 +70,11 @@
     <div class="container">
         <h1>我的导航页</h1>
         <div class="search-container">
-            <input type="text" id="search-query" placeholder="输入搜索内容">
+            <input type="text" id="search-query" placeholder="输入搜索内容" onkeydown="if(event.key === 'Enter') performSearch()">
             <select id="search-engine">
+                <option value="https://www.bing.com/search?q=" selected>必应</option>
                 <option value="https://www.baidu.com/s?wd=">百度</option>
                 <option value="https://www.google.com/search?q=">谷歌</option>
-                <option value="https://www.bing.com/search?q=">必应</option>
             </select>
             <button onclick="performSearch()">搜索</button>
         </div>
