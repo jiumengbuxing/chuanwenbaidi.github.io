@@ -39,17 +39,59 @@
         a:hover {
             text-decoration: underline;
         }
+        .search-container {
+            margin: 20px 0;
+        }
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-container select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>我的导航页</h1>
+        <div class="search-container">
+            <input type="text" id="search-query" placeholder="输入搜索内容">
+            <select id="search-engine">
+                <option value="https://www.baidu.com/s?wd=">百度</option>
+                <option value="https://www.google.com/search?q=">谷歌</option>
+                <option value="https://www.bing.com/search?q=">必应</option>
+            </select>
+            <button onclick="performSearch()">搜索</button>
+        </div>
         <ul>
-            <li><a href="https://bilibili.com">bilibili</a></li>
-            <li><a href="https://github.com/chuanwenbaidi/chuanwenbaidi.github.io/edit/main/index.html">在线编辑</a></li>
-            <li><a href="http://m.feijisu34.com/">飞极速在线</a></li>
-            <li><a href="https://chuanwenbaidi.github.io/blog/">博客</a></li>
+            <li><a href="https://bilibili.com">bilibili</a></li> 
+            <li><a href="https://github.com/chuanwenbaidi/chuanwenbaidi.github.io/edit/main/index.html">在线编辑</a></li> 
+            <li><a href="http://m.feijisu34.com/">飞极速在线</a></li> 
+            <li><a href="https://chuanwenbaidi.github.io/blog/">博客</a></li> 
         </ul>
     </div>
+    <script>
+        function performSearch() {
+            const query = document.getElementById('search-query').value;
+            const engine = document.getElementById('search-engine').value;
+            const url = engine + encodeURIComponent(query);
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
